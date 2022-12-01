@@ -7,13 +7,13 @@ import (
 
 func BookManageController(server *gin.Engine) {
 	//图书管理
-	bookGroup := server.Group("/book")
+	bookGroup := server.Group("/books")
 	//添加图书
-	bookGroup.POST("/add", api.AddBook())
+	bookGroup.POST("/book", api.AddBook())
 	//删除图书
-	bookGroup.DELETE("/delete/:id", api.DeleteBook())
+	bookGroup.DELETE("/:id", api.DeleteBook())
 
 	//修改图书
-	bookGroup.POST("/modify", api.ModifyBook())
+	bookGroup.PUT("/new", api.ModifyBook())
 
 }

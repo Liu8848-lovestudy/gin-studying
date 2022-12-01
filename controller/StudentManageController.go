@@ -6,14 +6,14 @@ import (
 )
 
 func StudentManageController(server *gin.Engine) {
-	stuGroup := server.Group("/student")
+	stuGroup := server.Group("/students")
 
 	stuGroup.Use(api.IsLogin())
 	//添加学生
-	stuGroup.POST("/add", api.AddStu())
+	stuGroup.POST("/student", api.AddStu())
 	//删除学生
-	stuGroup.DELETE("/delete/:id")
+	stuGroup.DELETE("/:id")
 	//修改学生信息
-	stuGroup.POST("/modify", api.ModifyStudentInfo())
+	stuGroup.PUT("/new", api.ModifyStudentInfo())
 
 }

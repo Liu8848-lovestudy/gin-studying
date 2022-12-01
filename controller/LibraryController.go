@@ -6,14 +6,13 @@ import (
 )
 
 func LibraryCon(server *gin.Engine) {
+	libraryGroup := server.Group("/library")
 	//图书借阅
-	server.POST("/addBookLent/:stuId/:bookId", api.LendBook())
+	libraryGroup.POST("/book/:stuId/:bookId", api.LendBook())
 	//图书归还
-	server.DELETE("/deleteBookLent/:stuId/:bookId", api.ReturnBook())
-
+	libraryGroup.DELETE("/:stuId/:bookId", api.ReturnBook())
 	//图书信息展示
-	server.GET("/showBooks", api.ShowBooks())
-
+	libraryGroup.GET("/books", api.ShowBooks())
 	//图书借出列表展示
-	server.GET("/showBookLent", api.ShowBookLent())
+	libraryGroup.GET("/bookLents", api.ShowBookLent())
 }
