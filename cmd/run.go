@@ -6,8 +6,9 @@ import (
 )
 
 var runCmd = &cobra.Command{
-	Use:  "run",
-	Long: "启动lirary小程序",
+	Use:   "run",
+	Short: "启动lirary小程序",
+	Long:  "启动lirary小程序",
 	Run: func(cmd *cobra.Command, args []string) {
 		controller.StartServer()
 	},

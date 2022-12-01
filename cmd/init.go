@@ -6,8 +6,9 @@ import (
 )
 
 var initCmd = &cobra.Command{
-	Use:  "init",
-	Long: "初始化数据表",
+	Use:   "init",
+	Short: "初始化数据表",
+	Long:  "初始化数据表",
 	Run: func(cmd *cobra.Command, args []string) {
 		utils.CreateTables()
 	},
